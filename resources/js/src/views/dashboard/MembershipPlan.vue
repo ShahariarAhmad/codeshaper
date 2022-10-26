@@ -32,13 +32,14 @@
       </div>
       <!-- Card -->
       <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
-    
+
         <div>
-          <button class="px-3 py-1 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-orange-600 border border-transparent rounded-md active:bg-orange-600 hover:bg-orange-700 focus:outline-none focus:shadow-outline-purple">
-                  Swtich to premium membership
-                </button>
-                
-                 </div>
+          <button
+            class="px-3 py-1 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-orange-600 border border-transparent rounded-md active:bg-orange-600 hover:bg-orange-700 focus:outline-none focus:shadow-outline-purple">
+            Swtich to premium membership
+          </button>
+
+        </div>
       </div>
     </div>
     <div class="container px-6 mx-auto grid">
