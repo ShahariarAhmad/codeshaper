@@ -48,8 +48,8 @@ export default {
     }
   },
   mounted() {
-    axios.get("api/test").then(res => {
-      this.articles = res.data;
+    axios.get("api/article").then(res => {
+      this.articles = res.data[0];
     });
   }
 };

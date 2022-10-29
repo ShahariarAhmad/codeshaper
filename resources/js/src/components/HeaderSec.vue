@@ -4,9 +4,25 @@
 
 
       <ul class="flex items-center flex-shrink-0 space-x-6">
-        <button
+        <button @click.prevent="logout"
           class="float-right px-3 py-1 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-red-600 border border-transparent rounded-md active:bg-red-600 hover:bg-red-700 focus:outline-none focus:shadow-outline-purple">Logout</button>
       </ul>
     </div>
   </header>
 </template>
+
+<script>
+
+export default {
+
+  methods: {
+    logout() {
+      axios.get("api/user").then(r => {
+        axios.get(`api/logout`).then(r => {
+          this.$router.push({ path: "/" });
+        });
+      });
+    }
+  }
+};
+</script>

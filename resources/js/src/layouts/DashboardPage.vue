@@ -19,11 +19,7 @@ export default {
   components: {
     SideBar,
     HeaderSec
-  },
-  // mounted() {
-  //   axios.get("api/user", { email: this.email }).then(e => {
-  //     console.table(e.data);
-  //   });
-  // }
+  }
+
 };
 </script>

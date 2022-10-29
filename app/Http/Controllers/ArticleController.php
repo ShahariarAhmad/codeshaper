@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Http\Requests\StoreArticleRequest;
 use App\Http\Requests\UpdateArticleRequest;
+use App\Jobs\PostNotification;
+use App\Mail\PublishedNotifier;
 use App\Models\User;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Mail;
 
 class ArticleController extends Controller
 {
@@ -18,6 +21,7 @@ class ArticleController extends Controller
         $this->middleware('auth:sanctum')
             ->except([
                 'show',
+                'index'
             ]);
     }
 
@@ -29,7 +33,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //
+        // return response('cache is here !!!');
+        return Cache::get('allArticles');
     }
 
     /**
@@ -52,11 +57,23 @@ class ArticleController extends Controller
     {
 
 
-        Article::create([
+        $data = Article::create([
             "title" => $request->title,
             "description" => $request->description,
             "user_id" => $request->id
         ]);
+
+        if ($data) {
+            Cache::forget('allArticles');
+            Cache::forever('allArticles', [Article::orderBy('id','DESC')->get()], 500000);
+            $article = Article::find($data->id);
+            PostNotification::dispatch($article);
+       
+        }
+     
+        
+
+
     }
 
 

@@ -35,10 +35,7 @@
             </svg>
           </div>
           <div>
-            <p
-              :key="updatePublished"
-              class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
-            >Published Today</p>
+            <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">Published Today</p>
             <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">{{count}}</p>
           </div>
         </div>
@@ -72,6 +69,28 @@
 
       <h4 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">Write A Article</h4>
       <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
+        <label class="block text-sm">
+          <span v-if="isMember">
+            <p
+              class="text-red-900"
+            >Only pick date Today's or future date. No validation is been implemented</p>
+            <span class="text-gray-700 dark:text-gray-400">scheduled your publish</span>
+            <input
+              v-model="date"
+              type="date"
+              min="10/29/2022"
+              id="date"
+              class="border border-teal-600 p-2 block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+            />
+          </span>
+          <input
+            v-if="disable"
+            disabled
+            class="border p-2 block w-full mt-1 text-sm border-gray-600 form-input"
+            placeholder="You have reached your daily limit !"
+          />
+        </label>
+
         <label class="block text-sm">
           <span class="text-gray-700 dark:text-gray-400">Name</span>
           <input
@@ -131,13 +150,13 @@ export default {
       description: null,
       count: false,
       isMember: null,
-      updatePublished: 0
+      date: null
     };
   },
   computed: {
     disable() {
       if (this.isMember == 1) {
-        return true;
+        return false;
       } else if (this.isMember == 0 && this.count < 2) {
         return false;
       } else {
@@ -155,25 +174,20 @@ export default {
             id: r.data.id
           })
           .then(() => {
-            this.updatePublished = Math.random();
+            this.$router.go(this.$router.currentRoute);
           });
       });
     }
   },
 
   mounted() {
-    axios.get("/api/user").then(r => {
-      console.log('aaaaaaaaaaaaa   '+r.data.is_member)
+    axios.get("api/user").then(r => {
       axios.get(`api/article/${r.data.id}/quota`).then(r => {
         this.count = r.data.quota;
         this.isMember = r.data.isMember;
-
-        console.log("Inside isMember :" + r.data.isMember);
       });
     });
-
-    console.log("Computed" + this.disable);
-    console.log("isMember :" + this.isMember);
   }
 };
 </script>
+

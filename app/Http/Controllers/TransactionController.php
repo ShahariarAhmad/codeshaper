@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Transaction;
 use App\Http\Requests\StoreTransactionRequest;
 use App\Http\Requests\UpdateTransactionRequest;
-
+use Cartalyst\Stripe\Stripe;
 class TransactionController extends Controller
 {
     /**
@@ -36,7 +36,7 @@ class TransactionController extends Controller
      */
     public function store(StoreTransactionRequest $request)
     {
-        //
+        Stripe::make(env('STRIPE_KEY'));
     }
 
     /**

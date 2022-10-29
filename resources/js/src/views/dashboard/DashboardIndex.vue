@@ -83,24 +83,25 @@
               <tr
                 class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800"
               >
-            
                 <th class="px-4 py-3">Title</th>
                 <th class="px-4 py-3">Content</th>
                 <th class="px-4 py-3">Date</th>
               </tr>
             </thead>
             <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-              <tr v-for="article in published" :key="article.id" class="text-gray-700 dark:text-gray-400">
-      
+              <tr
+                v-for="article in published"
+                :key="article.id"
+                class="text-gray-700 dark:text-gray-400"
+              >
                 <td class="px-4 py-3 text-sm">{{article.title}}</td>
                 <td class="px-4 py-3 text-xs">
-                  <span class="px-2 py-1 font-semibold leading-tight rounded-full dark:text-green-100"
+                  <span
+                    class="px-2 py-1 font-semibold leading-tight rounded-full dark:text-green-100"
                   >{{article.description.substring(0,150)}}</span>
                 </td>
                 <td class="px-4 py-3 text-sm">{{new Date(article.created_at).toDateString()}}</td>
               </tr>
-
-       
             </tbody>
           </table>
         </div>
@@ -118,19 +119,18 @@ export default {
   },
   data() {
     return {
-      published : null
+      published: null
     };
   },
-  // Mount isn't beening used now , Self reminder
-  mounted() {
-    axios.get("/api/user").then(response => {
-      axios.get(`/api/article/${response.data.id}/edit`).then(res=>{
-        this.published =   res.data
-        console.table(this.published)
-      })
-    
-   
-    });
+  methods: {
+    logout() {
+      axios.get("api/user").then(r => {
+        axios.get(`api/logout`).then(r => {
+          this.$router.push({ path: "/" });
+        });
+      });
+    }
   }
 };
 </script>
+
