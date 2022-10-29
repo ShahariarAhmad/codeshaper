@@ -86,18 +86,16 @@ export default {
     submit() {
       axios.get("/sanctum/csrf-cookie").then(response => {
         axios.post("api/login", { email: this.email }).then(e => {
-          console.table(e.data);
+          // console.table(e.data);
+          this.$router.push({ name: 'Dashboard' })
+
         });
       });
     }
   },
   created() {
     console.log(this.email); // 1
-  },
-  mounted() {
-    axios.get("api/user", { email: this.email }).then(e => {
-      console.table(e.data);
-    });
   }
+
 };
 </script>

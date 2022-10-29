@@ -17,7 +17,7 @@ class ArticleFactory extends Factory
     public function definition()
     {
         return [
-            'title' => fake()->title(),
+            'title' => fake()->catchPhrase(),
             'description' => fake()->sentence($nbWords = 200, $variableNbWords = true) ,
             'user_id' => now(),
         

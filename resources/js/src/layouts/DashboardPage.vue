@@ -20,8 +20,10 @@ export default {
     SideBar,
     HeaderSec
   },
-  data() {
-    return {};
-  }
+  // mounted() {
+  //   axios.get("api/user", { email: this.email }).then(e => {
+  //     console.table(e.data);
+  //   });
+  // }
 };
 </script>
