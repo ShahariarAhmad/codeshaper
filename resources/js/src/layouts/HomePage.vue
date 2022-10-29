@@ -50,13 +50,13 @@
                 aria-current="page"
               >Dashboard</router-link>
             </li>
-            <li v-if="isLogout">
+            <!-- <li v-if="isLogout">
               <router-link
                 :to="{ name: 'Register' }"
                 class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
                 aria-current="page"
               >Register</router-link>
-            </li>
+            </li>-->
             <li v-if="isLogout">
               <router-link
                 :to="{ name: 'Login' }"
@@ -76,6 +76,7 @@
       </div>
     </nav>
 
+   
     <router-view></router-view>
   </section>
 </template>
@@ -89,11 +90,11 @@ export default {
   },
 
   mounted() {
-    // if (this.isLogout) {
-    //   axios.get("/api/user").then(() => {
-    //     this.isLogout = false;
-    //   });
-    // }
+    if (this.isLogout) {
+      axios.get("/api/user").then(() => {
+        this.isLogout = false;
+      });
+    }
   }
 };
 </script>

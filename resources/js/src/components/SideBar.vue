@@ -31,7 +31,7 @@
                                     <span class="ml-4">Publish an Article</span>
                               </router-link>
                         </li>
-                        <li class="relative px-6 py-3">
+                        <!-- <li class="relative px-6 py-3">
                               <router-link :to="{ name: 'Published' }"
                                     class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
                                     <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
@@ -54,7 +54,7 @@
                                     </svg>
                                     <span class="ml-4">Menbership Plan</span>
                               </router-link>
-                        </li>
+                        </li> -->
                   </ul>
                   <div class="px-6 my-6">
                         <button

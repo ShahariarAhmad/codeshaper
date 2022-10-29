@@ -34,7 +34,13 @@ class ArticleController extends Controller
     public function index()
     {
         // return response('cache is here !!!');
-        return Cache::get('allArticles');
+
+        if (Cache::has('allArticles')) {
+            return Cache::get('allArticles');
+        } else {
+            return Article::orderBy('id','DESC')->get();
+        }
+       
     }
 
     /**

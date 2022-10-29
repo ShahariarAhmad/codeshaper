@@ -74,7 +74,6 @@
 
 
 <script>
-import { checkCompatEnabled } from "@vue/compiler-core";
 
 export default {
   data() {
@@ -92,10 +91,6 @@ export default {
         });
       });
     }
-  },
-  created() {
-    console.log(this.email); // 1
   }
-
 };
 </script>
