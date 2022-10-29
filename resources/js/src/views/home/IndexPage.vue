@@ -32,7 +32,7 @@
               <li
                 class="indent-4"
               >* And there was no internet or electricity on October 24 for the natural disaster ( Cyclone Sitrang ) that happened that day...</li>
-              <li class="indent-4">* So, I barely had 2 days to complete the task.</li>
+              <li class="indent-4">* I barely had 2 days to complete the task.</li>
               <li
                 class="indent-4"
               >* I couldn't implement task scheduling for scheduling post publishing for the lack of time.</li>
