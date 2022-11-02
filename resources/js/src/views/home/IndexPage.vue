@@ -4,10 +4,26 @@
       <p class="text-xl">Read Me ...</p>
       <br />
 
+
       <div class="rounded col-span-6">
         <div
-          class="w-full grid grid-cols-2 flex flex-col justify-between bg-yellow-400 rounded-lg border border-yellow-400 mb-6 py-5 px-4"
+          class="w-full grid grid-cols-2 flex flex-col justify-between bg-teal-400 rounded-lg border border-teal-400 mb-6 py-5 px-4"
         >
+        <div>
+            <h1 class="text-gray-800 font-bold mb-3">Tasks </h1>
+            <ul class="text-gray-800 text-sm">
+              <li class="indent-4">Task - 2 </li>
+              <li class="indent-4">--- Please visit Article Controller.</li>
+              <li class="indent-4">Task - 3 </li>
+              <li class="indent-4">--- Please visit Database seeder & Factories</li>
+              <li class="indent-4">Tasks - 5 & 6</li>
+              <li class="indent-4">--- See [ ArticleController::class, 'store' ]</li>
+
+              <li class="indent-4">You need to set up mailtrap to receive mails for now.</li>
+            
+
+            </ul>
+            </div>
           <div>
             <h4 class="text-gray-800 font-bold mb-3">Instruction</h4>Run these commands sequentially,
             <ul class="text-gray-800 text-sm">
@@ -19,7 +35,7 @@
               <li class="indent-4">--- Setup mailtrap</li>
               <li class="indent-4">--- php artisan migrate:fresh --seed</li>
 
-              <li class="indent-4">--- Add this to the environment file : QUEUE_CONNECTION=database</li>
+              <li class="indent-4">--- <strong> Add this to the environment file : QUEUE_CONNECTION=database </strong></li>
               <li
                 class="indent-4"
               >--- To log in, simply copy an email from DB and click login, No password is required.</li>
@@ -105,7 +121,7 @@
 export default {
   data() {
     return {
-      articles: null,
+      articles: {},
       view: {},
       placeholder: true
     };
@@ -115,14 +131,14 @@ export default {
       axios.get(`api/article/${id}`).then(r => {
         this.placeholder = false;
         this.view = r.data[0];
-        console.log(this.view);
+    
       });
     }
   },
   mounted() {
     axios.get("api/article").then(res => {
-      this.articles = res.data;
-      console.log("asdasd" + this.view.id);
+      this.articles = res.data[0];
+     
     });
   }
 };

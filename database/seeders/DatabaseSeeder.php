@@ -17,8 +17,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+   
         User::factory(50)->hasArticles(1)->create();
-
+      
         User::factory()->create([
             'id' => 101,
             'name' => 'Super Admin',

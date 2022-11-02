@@ -11,6 +11,8 @@
           class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900"
         >Sign in to your account</h2>
       </div>
+      <p>Use any email from user table <strong> except user no. 101</strong></p>
+      <p>* No password need to be entered ... </p>
       <form class="mt-8 space-y-6" action="#" method="POST">
         <input type="hidden" name="remember" value="true" />
         <div class="-space-y-px rounded-md shadow-sm">
