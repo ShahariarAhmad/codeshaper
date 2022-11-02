@@ -7,7 +7,7 @@
 
       <div class="rounded col-span-6">
         <div
-          class="w-full grid grid-cols-2 flex flex-col justify-between bg-teal-400 rounded-lg border border-teal-400 mb-6 py-5 px-4"
+          class="w-full grid grid-cols-2 flex flex-col justify-between shadow-2xl rounded-lg border border-teal-400 mb-6 py-5 px-4"
         >
         <div>
             <h1 class="text-gray-800 font-bold mb-3">Tasks </h1>
@@ -61,7 +61,7 @@
       </div>
     </div>
 
-    <div class="grid grid-cols-12 py-10 container mx-auto">
+    <div class="grid grid-cols-12 py-10 container mx-auto shadow-2xl">
       <div class="col-span-5">
         <div class="flex justify-center">
           <ul v-if="placeholder" class="bg-white rounded-lg w-full text-gray-900">

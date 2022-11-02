@@ -12,6 +12,8 @@
         >Sign in to your account</h2>
       </div>
       <p>Use any email from user table <strong> except user no. 101</strong></p>
+      <p>**Remove my Laravel application's browser cookies to log out from the application, for now...
+**</p>
       <p>* No password need to be entered ... </p>
       <form class="mt-8 space-y-6" action="#" method="POST">
         <input type="hidden" name="remember" value="true" />
