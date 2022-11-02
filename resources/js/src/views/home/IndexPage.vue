@@ -10,7 +10,7 @@
           class="w-full grid grid-cols-2 flex flex-col justify-between shadow-2xl rounded-lg border border-teal-400 mb-6 py-5 px-4"
         >
         <div>
-            <h1 class="text-gray-800 font-bold mb-3">Tasks </h1>
+            <h1 class="text-gray-800 font-bold mb-3">4 Tasks Completed out of 6 ...</h1>
             <ul class="text-gray-800 text-sm">
               <li class="indent-4">Task - 2 </li>
               <li class="indent-4">--- Please visit Article Controller.</li>
